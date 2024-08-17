@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll('.section');
     const letters = document.querySelectorAll('.celebration-title .letter');
 
-    // Toggle the navigation menu on mobile
+    //mobile
     hamburgerMenu.addEventListener('click', () => {
         navLinks.classList.toggle('show');
     });
 
-    // Only play audio after user interaction to comply with browser autoplay policies
+    
     audioIcon.addEventListener('click', () => {
         if (backgroundAudio.paused) {
             backgroundAudio.play();
@@ -68,3 +68,39 @@ document.addEventListener("DOMContentLoaded", function() {
     handleScroll();
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const header = document.querySelector('header');
+    const audioControl = document.querySelector('.audio-control');
+    const heroVideo = document.getElementById('hero-video');
+    let scrollTimeout;
+    let hasScrolled = false;
+
+    function playVideo() {
+        heroVideo.play().catch(() => {
+            document.body.addEventListener('touchstart', () => {
+                heroVideo.play();
+            }, { once: true });
+        });
+    }
+
+    window.addEventListener('scroll', function() {
+        if (!hasScrolled) {
+            hasScrolled = true;
+        }
+        
+        header.style.opacity = '1';
+        audioControl.style.opacity = '1';
+
+        clearTimeout(scrollTimeout);
+
+        scrollTimeout = setTimeout(() => {
+            header.style.opacity = '0';
+            audioControl.style.opacity = '0';
+        }, 1000);
+    });
+
+    playVideo();
+
+    header.style.opacity = '1';
+    audioControl.style.opacity = '1';
+});

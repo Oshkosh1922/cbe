@@ -7,14 +7,20 @@ body {
     background-color: rgb(94, 174, 199);
     text-align: center;
 }
-
 header {
-    background-color: #ffec96;
-    padding: 10px 20px;
     display: flex;
+    background-color: #ffec96;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: opacity 0.5s ease-out;
 }
+
+
+
 
 .logo-title {
     display: flex;
@@ -87,8 +93,63 @@ nav {
 
 .hamburger-menu {
     display: none;
-    font-size: 30px;
+    font-size: 24px;
     cursor: pointer;
+    z-index: 1002;
+    color: rgb(94, 174, 199);
+    position: relative;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    width: 25px;
+    background: rgb(94, 174, 199);
+    margin: 4px 0;
+}
+
+@media (max-width: 800px) {
+    /* Show Hamburger Menu on Mobile */
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Adjust logo and title size for mobile to fit the hamburger menu */
+    .logo {
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    .site-title {
+        font-size: 1.5em;
+    }
+
+    /* Hide desktop navigation on mobile */
+    nav .nav-links {
+        display: none;
+    }
+
+    /* When the menu is toggled, show the nav-links */
+    .nav-links.show {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: #1c1c1c;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 1001;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        padding: 15px;
+        color: #ffec96;
+        text-align: center;
+    }
 }
 
 
@@ -254,7 +315,9 @@ nav {
     border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    transition: opacity 0.5s ease-out; /* Add transition for fade effect */
 }
+
 
 #audio-icon {
     font-size: 24px;
@@ -474,17 +537,20 @@ footer {
     }
 }
 
-/* Enhanced Scroll Effect */
 .section {
     opacity: 0;
-    transform: translateY(100px);
-    transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform: translateY(50px);
+    transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .section.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+
 .image-grid .image-item img {
     max-width: 100%;
     height: auto;
