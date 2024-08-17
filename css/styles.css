@@ -434,3 +434,77 @@ footer {
         left: -7px;
     }
 }
+/* Title Tumble Animation */
+.celebration-title {
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    color: rgb(255, 94, 94);
+    background: linear-gradient(90deg, rgba(255, 174, 0, 1) 0%, rgba(255, 212, 0, 1) 50%, rgba(255, 84, 0, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    position: relative;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-100px) rotate(-180deg);
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.letter.visible {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+}
+
+.celebration-title.visible .letter {
+    animation: tumble-in 0.5s ease-out forwards;
+}
+
+@keyframes tumble-in {
+    0% {
+        opacity: 0;
+        transform: rotate(-180deg) translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0) translateY(0);
+    }
+}
+
+/* Enhanced Scroll Effect */
+.section {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.image-grid .image-item img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 250px;
+}
+
+.image-title {
+    font-size: 1.5em;
+    color: rgb(255, 255, 255);
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    background-color: rgb(94, 174, 199);
+    padding: 5px 0;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.image-item:hover .image-title {
+    transform: scale(1.1);
+    background-color: rgb(255, 94, 94);
+}

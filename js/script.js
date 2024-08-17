@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const volumeControl = document.getElementById('volume-control');
     const backgroundAudio = document.getElementById('background-audio');
     const sections = document.querySelectorAll('.section');
+    const letters = document.querySelectorAll('.celebration-title .letter');
 
     // Toggle the navigation menu on mobile
     hamburgerMenu.addEventListener('click', () => {
@@ -30,12 +31,21 @@ document.addEventListener("DOMContentLoaded", function() {
         backgroundAudio.volume = e.target.value;
     });
 
-    // Throttled scroll event to improve performance
+    // Handle scrolling to trigger animations
     const handleScroll = () => {
         sections.forEach(section => {
             const sectionTop = section.getBoundingClientRect().top;
             if (sectionTop < window.innerHeight * 0.75) {
                 section.classList.add('visible');
+            }
+        });
+
+        letters.forEach((letter, index) => {
+            const letterTop = letter.getBoundingClientRect().top;
+            if (letterTop < window.innerHeight * 0.75) {
+                setTimeout(() => {
+                    letter.classList.add('visible');
+                }, index * 100);
             }
         });
     };
@@ -56,6 +66,5 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('scroll', throttle(handleScroll, 200));
 
     handleScroll();
-
-    console.log("JavaScript loaded and running!");
 });
+
