@@ -8,12 +8,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll('.section');
     const letters = document.querySelectorAll('.celebration-title .letter');
 
-    //mobile
     hamburgerMenu.addEventListener('click', () => {
         navLinks.classList.toggle('show');
     });
 
-    
     audioIcon.addEventListener('click', () => {
         if (backgroundAudio.paused) {
             backgroundAudio.play();
@@ -26,12 +24,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // cat song
     volumeControl.addEventListener('input', (e) => {
         backgroundAudio.volume = e.target.value;
     });
 
-   //tumble 
     const handleScroll = () => {
         sections.forEach(section => {
             const sectionTop = section.getBoundingClientRect().top;
@@ -73,11 +69,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const audioControl = document.querySelector('.audio-control');
     const heroVideo = document.getElementById('hero-video');
     let scrollTimeout;
-    let hasScrolled = false;
 
-    
     function playVideo() {
-        heroVideo.setAttribute('playsinline', 'true'); 
+        heroVideo.setAttribute('playsinline', 'true');
         heroVideo.play().catch(() => {
             document.body.addEventListener('touchstart', () => {
                 heroVideo.play();
@@ -86,25 +80,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     window.addEventListener('scroll', function() {
-        if (!hasScrolled) {
-            hasScrolled = true;
-        }
-        
-        header.style.opacity = '1';
         audioControl.style.opacity = '1';
 
         clearTimeout(scrollTimeout);
 
         scrollTimeout = setTimeout(() => {
-            header.style.opacity = '0';
             audioControl.style.opacity = '0';
-        }, 1000);
+        }, 1400);
     });
 
-   
     playVideo();
 
-    
     header.style.opacity = '1';
-    audioControl.style.opacity = '1';
+    audioControl.style.opacity = '0';
 });

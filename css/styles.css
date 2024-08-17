@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     padding: 0;
@@ -7,6 +6,7 @@ body {
     background-color: rgb(94, 174, 199);
     text-align: center;
 }
+
 header {
     display: flex;
     background-color: #ffec96;
@@ -16,11 +16,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: opacity 0.5s ease-out;
 }
-
-
-
 
 .logo-title {
     display: flex;
@@ -109,36 +105,29 @@ nav {
 }
 
 @media (max-width: 800px) {
-   
     .hamburger-menu {
         display: block;
+        cursor: pointer;
+        z-index: 10011; /* Ensure it's above other elements */
     }
 
-   
-    .logo {
-        width: 40px;
-        margin-right: 10px;
-    }
-
-    .site-title {
-        font-size: 1.5em;
-    }
-
-    
-    nav .nav-links {
+    .nav-links {
         display: none;
-    }
-
-    
-    .nav-links.show {
-        display: flex;
         flex-direction: column;
-        width: 100%;
-        background-color: #1c1c1c;
         position: absolute;
         top: 60px;
-        left: 0;
-        z-index: 1001;
+        right: 0;
+        width: 100%;
+        background-color: rgba(28, 28, 28, 0.95); /* Dark background */
+        z-index: 10010; /* Ensure it pops up above other content */
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 20px;
+        border-radius: 0 0 10px 10px; /* Smooth bottom corners */
+    }
+
+    .nav-links.show {
+        display: flex;
     }
 
     .nav-links li {
@@ -149,56 +138,16 @@ nav {
         padding: 15px;
         color: #ffec96;
         text-align: center;
+        text-decoration: none;
+        font-size: 1.5em;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #fff;
     }
 }
 
-
-
-
-@media (max-width: 800px) {
-    .site-title {
-        text-align: center;
-        flex-grow: 0;
-        margin: 0 auto;
-    }
-
-    nav {
-        flex-grow: 0;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #1c1c1c;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 1000;
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links a {
-        padding: 15px;
-    }
-
-    .dropdown {
-        position: relative;
-        width: 100%;
-        box-shadow: none;
-    }
-
-    .hamburger-menu {
-        display: block;
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-}
 
 .hero {
     display: flex;
@@ -256,8 +205,6 @@ nav {
     border-radius: 20px;
 }
 
-
-
 @media (max-width: 800px) {
     .hero-content {
         grid-template-columns: 1fr;
@@ -275,7 +222,6 @@ nav {
         width: 50%;
         box-sizing: border-box;
         border-radius: 100px;
-        
     }
 
     #volume-control {
@@ -317,7 +263,7 @@ nav {
     border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    transition: opacity 0.5s ease-out; 
+    transition: opacity 0.5s ease-out;
 }
 
 
@@ -336,6 +282,7 @@ nav {
     font-size: 14px;
     white-space: nowrap;
 }
+
 footer {
     background-color: #ffec96;
     color: rgb(94, 174, 199);
@@ -383,6 +330,7 @@ footer {
 .social-icons .social-link:hover {
     color: rgb(94, 174, 199);
 }
+
 .quest {
     color: #fbe784;
     background-color: rgb(94, 174, 199);
@@ -392,11 +340,9 @@ footer {
     font-family: 'Permanent Marker', cursive; 
     padding: 5px;
     border-style: solid;
-   
-    
 }
-.mission {
 
+.mission {
     color: #fbe784;
     background-color: rgb(94, 174, 199);
     border-radius: 10px;
@@ -405,14 +351,16 @@ footer {
     font-family: 'Permanent Marker', cursive;
     padding: 5px;
     border-style: solid;
-    
 }
-.hat-image{
+
+.hat-image {
     margin-right: 300px;
 }
-.nash-img{
+
+.nash-img {
     margin-left: 25%;
 }
+
 .wizard-party {
     background-color: #ffec96;
     padding: 50px 20px;
@@ -551,7 +499,6 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 .image-grid .image-item img {
     max-width: 100%;
