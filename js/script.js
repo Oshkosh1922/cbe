@@ -75,7 +75,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let scrollTimeout;
     let hasScrolled = false;
 
+    
     function playVideo() {
+        heroVideo.setAttribute('playsinline', 'true'); 
         heroVideo.play().catch(() => {
             document.body.addEventListener('touchstart', () => {
                 heroVideo.play();
@@ -99,8 +101,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 1000);
     });
 
+   
     playVideo();
 
+    
     header.style.opacity = '1';
     audioControl.style.opacity = '1';
 });
