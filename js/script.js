@@ -28,6 +28,12 @@ document.addEventListener("DOMContentLoaded", function() {
         backgroundAudio.volume = e.target.value;
     });
 
+    backgroundAudio.play().catch(() => {
+        document.body.addEventListener('click', () => {
+            backgroundAudio.play();
+        }, { once: true });
+    });
+
     const handleScroll = () => {
         sections.forEach(section => {
             const sectionTop = section.getBoundingClientRect().top;
@@ -86,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         scrollTimeout = setTimeout(() => {
             audioControl.style.opacity = '0';
-        }, 1400);
+        }, 1000);
     });
 
     playVideo();
