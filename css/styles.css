@@ -109,12 +109,12 @@ nav {
 }
 
 @media (max-width: 800px) {
-    /* Show Hamburger Menu on Mobile */
+   
     .hamburger-menu {
         display: block;
     }
 
-    /* Adjust logo and title size for mobile to fit the hamburger menu */
+   
     .logo {
         width: 40px;
         margin-right: 10px;
@@ -124,12 +124,12 @@ nav {
         font-size: 1.5em;
     }
 
-    /* Hide desktop navigation on mobile */
+    
     nav .nav-links {
         display: none;
     }
 
-    /* When the menu is toggled, show the nav-links */
+    
     .nav-links.show {
         display: flex;
         flex-direction: column;
@@ -315,7 +315,7 @@ nav {
     border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    transition: opacity 0.5s ease-out; /* Add transition for fade effect */
+    transition: opacity 0.5s ease-out; 
 }
 
 
@@ -479,7 +479,7 @@ footer {
     }
 
     .image-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 15px;
     }
 
@@ -497,7 +497,7 @@ footer {
         left: -7px;
     }
 }
-/* Title Tumble Animation */
+
 .celebration-title {
     display: flex;
     justify-content: center;

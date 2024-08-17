@@ -26,12 +26,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Volume control for background audio
+    // cat song
     volumeControl.addEventListener('input', (e) => {
         backgroundAudio.volume = e.target.value;
     });
 
-    // Handle scrolling to trigger animations
+   //tumble 
     const handleScroll = () => {
         sections.forEach(section => {
             const sectionTop = section.getBoundingClientRect().top;
