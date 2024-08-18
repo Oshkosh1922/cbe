@@ -83,3 +83,52 @@ document.addEventListener("DOMContentLoaded", function() {
 
     loop(); 
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const searchButton = document.getElementById('search-button');
+    const searchInput = document.getElementById('search-input');
+    const popup = document.getElementById('popup');
+
+    function performSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+
+        if (query) {
+            const targetElement = document.querySelector(`[id="${query}"]`);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                targetElement.classList.add('highlight');
+
+                searchInput.value = '';  
+                searchButton.style.backgroundColor = 'rgb(255, 94, 94)'; 
+
+                setTimeout(() => {
+                    searchButton.style.backgroundColor = 'rgb(94, 174, 199)'; 
+                }, 300);
+
+                
+                popup.classList.add('show');
+                setTimeout(() => {
+                    popup.classList.remove('show');
+                }, 2000); 
+            } else {
+                alert('No matching content found.');
+            }
+        }
+    }
+
+    searchButton.addEventListener('click', function() {
+        performSearch();
+    });
+
+    searchInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); 
+            performSearch();
+        }
+    });
+});
+
+
+
+
+
