@@ -16,26 +16,36 @@ document.addEventListener("DOMContentLoaded", function() {
     
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const navLinks = document.getElementById('nav-links');
+    const navItems = document.querySelectorAll('nav ul li > a');
 
     hamburgerMenu.addEventListener('click', function() {
         navLinks.classList.toggle('show');
     });
 
-    
-    const navItems = document.querySelectorAll('nav ul li > a');
+   
     navItems.forEach(item => {
         item.addEventListener('click', function(event) {
             const parentLi = event.target.parentElement;
             const dropdown = parentLi.querySelector('.dropdown');
 
             if (dropdown) {
-                event.preventDefault();
+                event.preventDefault(); 
                 dropdown.classList.toggle('show');
+
+                
+                navItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        const otherDropdown = otherItem.parentElement.querySelector('.dropdown');
+                        if (otherDropdown && otherDropdown.classList.contains('show')) {
+                            otherDropdown.classList.remove('show');
+                        }
+                    }
+                });
             }
         });
     });
 
-    // Mission item hover effects
+    
     const missionItems = document.querySelectorAll('.mission-item');
     missionItems.forEach(item => {
         item.addEventListener('mouseover', () => {
@@ -46,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-   
+    
     const elementsToShow = document.querySelectorAll('.mission-item, .mission-title, .mission-description');
 
     function isElementInViewport(el) {
