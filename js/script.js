@@ -28,12 +28,6 @@ document.addEventListener("DOMContentLoaded", function() {
         backgroundAudio.volume = e.target.value;
     });
 
-    backgroundAudio.play().catch(() => {
-        document.body.addEventListener('click', () => {
-            backgroundAudio.play();
-        }, { once: true });
-    });
-
     const handleScroll = () => {
         sections.forEach(section => {
             const sectionTop = section.getBoundingClientRect().top;
@@ -71,10 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    const header = document.querySelector('header');
-    const audioControl = document.querySelector('.audio-control');
     const heroVideo = document.getElementById('hero-video');
-    let scrollTimeout;
 
     function playVideo() {
         heroVideo.setAttribute('playsinline', 'true');
@@ -85,6 +76,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    playVideo();
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const audioControl = document.getElementById('audio-control');
+    let scrollTimeout;
+
     window.addEventListener('scroll', function() {
         audioControl.style.opacity = '1';
 
@@ -92,11 +89,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         scrollTimeout = setTimeout(() => {
             audioControl.style.opacity = '0';
-        }, 1000);
+        }, 2000); 
     });
 
-    playVideo();
-
-    header.style.opacity = '1';
-    audioControl.style.opacity = '0';
+    
+    scrollTimeout = setTimeout(() => {
+        audioControl.style.opacity = '0';
+    }, 2000); 
 });
+
