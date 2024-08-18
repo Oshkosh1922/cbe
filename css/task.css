@@ -394,3 +394,12 @@ nav ul li:hover > .dropdown {
         height: auto;
     }
 }
+@media (max-width: 800px) {
+    .mission-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+
+    .mission-item {
+        margin-bottom: 20px; /* Adds space between rows */
+    }
+}
