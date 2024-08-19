@@ -60,7 +60,7 @@ nav ul {
     margin: 0;
     display: flex;
     align-items: center;
-    margin-left: -100px;
+    margin-left: -40px;
 }
 
 nav ul li {
@@ -154,13 +154,13 @@ nav ul li:hover > .dropdown {
     .dropdown {
         position: static;
         box-shadow: none;
-        width: 100%;
+        width: 109%;
         left: 0;
     }
     .dropdown.show {
         display: block;
     }    .dropdown li a {
-        padding: 15px;
+        padding: 9px;
         color: #ffec96;
         text-align: center;
         display: block;
@@ -175,7 +175,7 @@ nav ul li:hover > .dropdown {
     .dropdown li a {
         padding: -5px;
         color: #ffec96;
-        text-align: right;
+        text-align: center;
         display: block;
         background-color: #333;
         border-bottom: 1px solid #444;

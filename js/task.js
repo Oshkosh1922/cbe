@@ -118,8 +118,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 }, 300);
 
                 if (popup) {
-                    popup.style.top = `${targetOffset + (rect.height / 2) - (popup.offsetHeight / 2)}px`;
-                    popup.style.left = `${window.scrollX + rect.left + (rect.width / 2) - (popup.offsetWidth / 2)}px`;
+                    const targetImage = targetElement.querySelector('.mission-image, .mission-video');
+                    const targetText = targetElement.querySelector('.mission-text');
+
+                    if (targetImage && targetText) {
+                        const imageRect = targetImage.getBoundingClientRect();
+                        const textRect = targetText.getBoundingClientRect();
+                        
+                        popup.style.top = `${window.scrollY + textRect.top + textRect.height + 10}px`;
+                        popup.style.left = `${window.scrollX + imageRect.left + (imageRect.width / 2) - (popup.offsetWidth / 2)}px`;
+                    } else {
+                        popup.style.top = `${targetOffset}px`; 
+                        popup.style.left = `${window.scrollX + rect.left + (rect.width / 2) - (popup.offsetWidth / 2)}px`;
+                    }
+
                     popup.classList.add('show');
                     setTimeout(() => {
                         popup.classList.remove('show');
