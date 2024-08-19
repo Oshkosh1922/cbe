@@ -464,13 +464,15 @@ nav ul li:hover > .dropdown {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6); 
+    background-color: #e0e0e0; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
 }
 
 .mission-item:hover .mission-image,
 .mission-item:hover .mission-video {
-    transform: scale(1.1); 
+    transform: scale(1.05); 
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
      
 }
@@ -508,5 +510,21 @@ nav ul li:hover > .dropdown {
     80% { opacity: 1; transform: translate(-50%, -50%); }
     100% { opacity: 0; transform: translate(-50%, -40%); }
 }
+.custom-position-image {
+    
+    bottom: 20px;
+    left: 20px;
+    max-width: 320px;
+    height: auto;
+    z-index: 1;
+    opacity: 1;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.custom-position-image:hover {
+    transform: scale(1.5); /* Zoom in on hover */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
 
