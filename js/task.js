@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     searchButton.style.backgroundColor = 'rgb(94, 174, 199)'; 
                 }, 300);
 
-                
+                popup.style.top = `${targetElement.getBoundingClientRect().top - 50}px`; // Position popup above the target
                 popup.classList.add('show');
                 setTimeout(() => {
                     popup.classList.remove('show');
@@ -126,41 +126,36 @@ document.addEventListener("DOMContentLoaded", function() {
             performSearch();
         }
     });
-});
-// Autoplay on hover (desktop)
-const missionItems = document.querySelectorAll('.mission-item video');
 
-missionItems.forEach(video => {
-    video.addEventListener('mouseenter', () => {
-        video.play();
+    // Autoplay on hover (desktop)
+    const missionItems = document.querySelectorAll('.mission-item video');
+
+    missionItems.forEach(video => {
+        video.addEventListener('mouseenter', () => {
+            video.play();
+        });
+
+        video.addEventListener('mouseleave', () => {
+            video.pause();
+            video.currentTime = 0; // Rewind the video
+        });
     });
 
-    video.addEventListener('mouseleave', () => {
-        video.pause();
-        video.currentTime = 0; // Rewind the video
+    // Autoplay on scroll into view (mobile)
+    function handleIntersection(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.play();
+            } else {
+                entry.target.pause();
+                entry.target.currentTime = 0; // Rewind the video
+            }
+        });
+    }
+
+    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
+
+    missionItems.forEach(video => {
+        observer.observe(video);
     });
 });
-
-// Autoplay on scroll into view (mobile)
-function handleIntersection(entries, observer) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.play();
-        } else {
-            entry.target.pause();
-            entry.target.currentTime = 0; // Rewind the video
-        }
-    });
-}
-
-const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
-
-missionItems.forEach(video => {
-    observer.observe(video);
-});
-
-
-
-
-
-
