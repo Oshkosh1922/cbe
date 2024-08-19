@@ -32,18 +32,20 @@ header {
 }
 
 .site-title {
-    font-size: 2em;
+    font-size: 1.15em;
     color: rgb(94, 174, 199);
     margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hamburger-menu {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 10px;
+    padding: 5px;
     background: rgb(94, 174, 199);
     border-radius: 5px;
+    margin-left: 90px;
 }
 
 .hamburger-menu span {
@@ -522,4 +524,8 @@ footer {
     nav ul {
         margin-left: -100px; 
     }
+}
+.about p {
+    color: rgb(94, 174, 199);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }

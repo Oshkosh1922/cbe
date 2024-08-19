@@ -11,6 +11,14 @@ document.addEventListener("DOMContentLoaded", function() {
     hamburgerMenu.addEventListener('click', () => {
         navLinks.classList.toggle('show');
     });
+    document.addEventListener("click", function(event) {
+        const navLinks = document.getElementById("nav-links");
+        const hamburgerMenu = document.getElementById("hamburger-menu");
+
+        if (navLinks.classList.contains("show") && !hamburgerMenu.contains(event.target) && !navLinks.contains(event.target)) {
+            navLinks.classList.remove("show");
+        }
+    });
 
     audioIcon.addEventListener('click', () => {
         if (backgroundAudio.paused) {

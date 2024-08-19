@@ -29,12 +29,14 @@ header {
 .logo {
     width: 60px;
     margin-right: 10px;
+   
 }
 
 .site-title {
     font-size:1.45em;
     color: rgb(94, 174, 199);
     margin-right: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hamburger-menu {
@@ -262,7 +264,9 @@ nav ul li:hover > .dropdown {
     color: rgb(94, 174, 199);
     font-size: 1.5em;
     position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 
 .cat-image {
     position: absolute;
@@ -573,8 +577,91 @@ nav ul li:hover > .dropdown {
     background-color:  rgb(94, 174, 199);
 }
 
+.custom-position-image-two {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+.hero h2 {
+    font-size: 3em;
+    color: #ffec96;
+    margin: 0;
+    padding: px;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    animation: popIn 1s ease-in-out forwards;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 
+.mission-text a {
+    color: rgb(94, 174, 199);
+    text-decoration: none;
+    font-size: 1.4em; /* Slightly increase the font size */
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.mission-text a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: rgb(94, 174, 199); /* Underline color */
+    bottom: -6px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+}
+
+.mission-text a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.mission-text a:hover {
+    color: #fff;
+    background: linear-gradient(to right, rgb(94, 174, 199), rgb(255, 243, 148));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateY(-3px);
+}
+
+.mission-text a:hover::before {
+    content: '✨';
+    position: absolute;
+    left: -25px;
+    top: 0;
+    font-size: 1.2em;
+    animation: sparkle 1s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+}
 
 
 
