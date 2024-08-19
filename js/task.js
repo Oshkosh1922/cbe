@@ -89,18 +89,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const targetElement = document.querySelector(`[id="${query}"]`);
 
             if (targetElement) {
-                // Adjust the scrolling speed and easing for mobile
-                const scrollOptions = {
-                    behavior: 'smooth',
-                    block: 'center'
-                };
+                const rect = targetElement.getBoundingClientRect();
+                const targetOffset = window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2);
+                
+                window.scrollTo({
+                    top: targetOffset,
+                    behavior: 'smooth'
+                });
 
-                // Different scroll speed for mobile
-                if (/Mobi|Android/i.test(navigator.userAgent)) {
-                    scrollOptions.behavior = 'smooth';
-                } 
-
-                targetElement.scrollIntoView(scrollOptions);
                 targetElement.classList.add('highlight');
 
                 searchInput.value = '';
@@ -110,8 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     searchButton.style.backgroundColor = 'rgb(94, 174, 199)';
                 }, 300);
 
-                const rect = targetElement.getBoundingClientRect();
-                popup.style.top = `${window.scrollY + rect.top + (rect.height / 2) - (popup.offsetHeight / 2)}px`;
+                popup.style.top = `${targetOffset + (rect.height / 2) - (popup.offsetHeight / 2)}px`;
                 popup.style.left = `${window.scrollX + rect.left + (rect.width / 2) - (popup.offsetWidth / 2)}px`;
                 popup.classList.add('show');
                 setTimeout(() => {
