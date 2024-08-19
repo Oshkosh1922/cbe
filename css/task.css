@@ -534,6 +534,32 @@ nav ul li:hover > .dropdown {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
 
+.popup {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: #fbe784;
+    color: rgb(94, 174, 199);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2em;
+    z-index: 1000;
+    display: none;
+    text-align: center;
+}
+
+.popup.show {
+    display: block;
+    animation: fadeInOut 2s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
 
 
 

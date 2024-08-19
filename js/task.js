@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-
     
     const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
     smoothScrollLinks.forEach(link => {
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const navLinks = document.getElementById('nav-links');
     const navItems = document.querySelectorAll('nav ul li > a');
@@ -23,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function() {
         navLinks.classList.toggle('show');
     });
 
-    
     navItems.forEach(item => {
         item.addEventListener('click', function(event) {
             const parentLi = event.target.parentElement;
@@ -33,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 event.preventDefault();
                 dropdown.classList.toggle('show');
 
-                
                 navItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         const otherDropdown = otherItem.parentElement.querySelector('.dropdown');
@@ -46,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    
     const missionItems = document.querySelectorAll('.mission-item');
     missionItems.forEach(item => {
         item.addEventListener('mouseover', () => {
@@ -57,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-   
     const elementsToShow = document.querySelectorAll('.mission-item, .mission-title, .mission-description');
 
     function isElementInViewport(el) {
@@ -84,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     loop();
 
-   
     const searchButton = document.getElementById('search-button');
     const searchInput = document.getElementById('search-input');
     const popup = document.getElementById('popup');
@@ -96,7 +89,18 @@ document.addEventListener("DOMContentLoaded", function() {
             const targetElement = document.querySelector(`[id="${query}"]`);
 
             if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Adjust the scrolling speed and easing for mobile
+                const scrollOptions = {
+                    behavior: 'smooth',
+                    block: 'center'
+                };
+
+                // Different scroll speed for mobile
+                if (/Mobi|Android/i.test(navigator.userAgent)) {
+                    scrollOptions.behavior = 'smooth';
+                } 
+
+                targetElement.scrollIntoView(scrollOptions);
                 targetElement.classList.add('highlight');
 
                 searchInput.value = '';
@@ -106,11 +110,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     searchButton.style.backgroundColor = 'rgb(94, 174, 199)';
                 }, 300);
 
-                popup.style.top = `${targetElement.getBoundingClientRect().top - 50}px`; // Position popup above the target
+                const rect = targetElement.getBoundingClientRect();
+                popup.style.top = `${window.scrollY + rect.top + (rect.height / 2) - (popup.offsetHeight / 2)}px`;
+                popup.style.left = `${window.scrollX + rect.left + (rect.width / 2) - (popup.offsetWidth / 2)}px`;
                 popup.classList.add('show');
                 setTimeout(() => {
                     popup.classList.remove('show');
-                }, 2000);
+                }, 3500);
             } else {
                 alert('No matching content found.');
             }
@@ -128,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    
     const missionVideos = document.querySelectorAll('.mission-item video');
 
     missionVideos.forEach(video => {
@@ -138,18 +143,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
         video.addEventListener('mouseleave', () => {
             video.pause();
-            video.currentTime = 0; 
+            video.currentTime = 0;
         });
     });
 
-    
     function handleIntersection(entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.play();
             } else {
                 entry.target.pause();
-                entry.target.currentTime = 0; 
+                entry.target.currentTime = 0;
             }
         });
     }
