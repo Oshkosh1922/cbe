@@ -324,8 +324,14 @@ nav ul li:hover > .dropdown {
     overflow: hidden; 
     box-sizing: border-box;
     height: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
+.mission-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 .mission-video {
     width: 100%;
     height: auto;
@@ -524,7 +530,12 @@ nav ul li:hover > .dropdown {
 }
 
 .custom-position-image:hover {
-    transform: scale(1.5); /* Zoom in on hover */
+    transform: scale(1.5); 
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
+
+
+
+
+
 

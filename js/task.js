@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+
     
     const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
     smoothScrollLinks.forEach(link => {
@@ -22,14 +23,14 @@ document.addEventListener("DOMContentLoaded", function() {
         navLinks.classList.toggle('show');
     });
 
-   
+    
     navItems.forEach(item => {
         item.addEventListener('click', function(event) {
             const parentLi = event.target.parentElement;
             const dropdown = parentLi.querySelector('.dropdown');
 
             if (dropdown) {
-                event.preventDefault(); 
+                event.preventDefault();
                 dropdown.classList.toggle('show');
 
                 
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    
+   
     const elementsToShow = document.querySelectorAll('.mission-item, .mission-title, .mission-description');
 
     function isElementInViewport(el) {
@@ -81,9 +82,9 @@ document.addEventListener("DOMContentLoaded", function() {
         window.requestAnimationFrame(loop);
     }
 
-    loop(); 
-});
-document.addEventListener("DOMContentLoaded", function() {
+    loop();
+
+   
     const searchButton = document.getElementById('search-button');
     const searchInput = document.getElementById('search-input');
     const popup = document.getElementById('popup');
@@ -98,18 +99,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 targetElement.classList.add('highlight');
 
-                searchInput.value = '';  
-                searchButton.style.backgroundColor = 'rgb(255, 94, 94)'; 
+                searchInput.value = '';
+                searchButton.style.backgroundColor = 'rgb(255, 94, 94)';
 
                 setTimeout(() => {
-                    searchButton.style.backgroundColor = 'rgb(94, 174, 199)'; 
+                    searchButton.style.backgroundColor = 'rgb(94, 174, 199)';
                 }, 300);
 
                 popup.style.top = `${targetElement.getBoundingClientRect().top - 50}px`; // Position popup above the target
                 popup.classList.add('show');
                 setTimeout(() => {
                     popup.classList.remove('show');
-                }, 2000); 
+                }, 2000);
             } else {
                 alert('No matching content found.');
             }
@@ -122,40 +123,40 @@ document.addEventListener("DOMContentLoaded", function() {
 
     searchInput.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
-            event.preventDefault(); 
+            event.preventDefault();
             performSearch();
         }
     });
 
-    // Autoplay on hover (desktop)
-    const missionItems = document.querySelectorAll('.mission-item video');
+    
+    const missionVideos = document.querySelectorAll('.mission-item video');
 
-    missionItems.forEach(video => {
+    missionVideos.forEach(video => {
         video.addEventListener('mouseenter', () => {
             video.play();
         });
 
         video.addEventListener('mouseleave', () => {
             video.pause();
-            video.currentTime = 0; // Rewind the video
+            video.currentTime = 0; 
         });
     });
 
-    // Autoplay on scroll into view (mobile)
+    
     function handleIntersection(entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.play();
             } else {
                 entry.target.pause();
-                entry.target.currentTime = 0; // Rewind the video
+                entry.target.currentTime = 0; 
             }
         });
     }
 
     const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
 
-    missionItems.forEach(video => {
+    missionVideos.forEach(video => {
         observer.observe(video);
     });
 });
