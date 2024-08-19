@@ -258,15 +258,19 @@ nav ul li:hover > .dropdown {
     color: rgb(94, 174, 199);
     padding: 10px;
     border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
     z-index: 1000;
     transition: opacity 0.5s ease-out;
 }
-
 #audio-icon {
     font-size: 24px;
     margin-right: 10px;
     cursor: pointer;
+}
+
+.audio-info {
+    font-size: 14px;
+    white-space: nowrap;
 }
 
 #volume-control {
@@ -274,10 +278,7 @@ nav ul li:hover > .dropdown {
     margin-right: 10px;
 }
 
-.audio-info {
-    font-size: 14px;
-    white-space: nowrap;
-}
+
 
 footer {
     background-color: #ffec96;
@@ -608,6 +609,6 @@ footer {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 body, h1, h2, h3, h4, h5, h6, p, a, li, span {
-    text-shadow: 2px 2px 4px rgb(57, 125, 145);
+    text-shadow: 1px 1px 1px rgb(57, 125, 145);
 }
 
