@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
     
     const hamburgerMenu = document.getElementById('hamburger-menu');
@@ -186,4 +187,24 @@ document.addEventListener("DOMContentLoaded", function() {
     missionVideos.forEach(video => {
         observer.observe(video);
     });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const scrollToTopButton = document.getElementById("scroll-to-top");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+            scrollToTopButton.style.display = "block";
+        } else {
+            scrollToTopButton.style.display = "none";
+        }
+    });
+
+    scrollToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+   
 });
