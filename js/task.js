@@ -127,6 +127,38 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+// Autoplay on hover (desktop)
+const missionItems = document.querySelectorAll('.mission-item video');
+
+missionItems.forEach(video => {
+    video.addEventListener('mouseenter', () => {
+        video.play();
+    });
+
+    video.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0; // Rewind the video
+    });
+});
+
+// Autoplay on scroll into view (mobile)
+function handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.play();
+        } else {
+            entry.target.pause();
+            entry.target.currentTime = 0; // Rewind the video
+        }
+    });
+}
+
+const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
+
+missionItems.forEach(video => {
+    observer.observe(video);
+});
+
 
 
 

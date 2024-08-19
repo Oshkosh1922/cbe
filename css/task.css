@@ -471,7 +471,12 @@ nav ul li:hover > .dropdown {
 .mission-item:hover .mission-image,
 .mission-item:hover .mission-video {
     transform: scale(1.1); 
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8); 
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+     
+}
+.mission-item:hover video {
+    /* Autoplay on hover */
+    autoplay: true;
 }
 
 .popup {
