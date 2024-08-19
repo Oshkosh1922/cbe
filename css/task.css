@@ -17,7 +17,7 @@ header {
     top: 0;
     z-index: 1000;
     height: auto;
-    box-shadow: rgb(57, 125, 145);
+    box-shadow: rgb(33, 94, 113);
 }
 
 .logo-title {
@@ -36,7 +36,7 @@ header {
     font-size:1.15em;
     color: rgb(94, 174, 199);
     margin-right: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: rgb(33, 94, 113);
 }
 
 .hamburger-menu {
@@ -570,7 +570,7 @@ nav ul li:hover > .dropdown {
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-    opacity: 50%;
+    
 }
 
 #scroll-to-top:hover {
