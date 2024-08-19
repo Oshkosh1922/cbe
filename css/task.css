@@ -327,9 +327,10 @@ nav ul li:hover > .dropdown {
 }
 
 .mission-video {
-    width: 175px;
-    height: 175px;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: #e0e0e0; 
 }
 
 .mission-image {
