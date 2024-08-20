@@ -17,7 +17,7 @@ header {
     top: 0;
     z-index: 1000;
     height: auto;
-    box-shadow: rgb(31, 82, 97);
+    box-shadow: rgb(57, 125, 145);
 }
 
 .logo-title {
@@ -35,7 +35,7 @@ header {
     font-size: 1.15em;
     color: rgb(94, 174, 199);
     margin: 0;
-    box-shadow: rgb(57, 125, 145);
+    text-shadow: 1px 1px black;
 }
 
 .hamburger-menu {
@@ -76,6 +76,7 @@ nav ul li a {
     padding: 10px 20px;
     display: block;
     transition: background 0.3s;
+    text-shadow: 1px 1px black;
 }
 
 nav ul li a:hover {
@@ -178,11 +179,13 @@ nav ul li:hover > .dropdown {
 .hero-text h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
+    text-shadow: 1px 1px black;
 }
 
 .hero-text p {
     font-size: 1.2em;
     margin-bottom: 30px;
+    text-shadow: 1px 1px black;
 }
 
 .video-container {
@@ -238,6 +241,12 @@ nav ul li:hover > .dropdown {
     font-size: 2.5em;
     margin-bottom: 20px;
     color: rgb(94, 174, 199);
+    text-shadow: 1px 1px black;
+}
+
+.about p {
+    color: rgb(94, 174, 199);
+    text-shadow: 1px 1px black;
 }
 
 .about-image {
@@ -258,27 +267,20 @@ nav ul li:hover > .dropdown {
     color: rgb(94, 174, 199);
     padding: 10px;
     border-radius: 50px;
-    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     transition: opacity 0.5s ease-out;
 }
+
 #audio-icon {
     font-size: 24px;
     margin-right: 10px;
     cursor: pointer;
 }
 
-.audio-info {
-    font-size: 14px;
-    white-space: nowrap;
+#audio-control span {
+    text-shadow: 1px 1px black;
 }
-
-#volume-control {
-    flex: 1;
-    margin-right: 10px;
-}
-
-
 
 footer {
     background-color: #ffec96;
@@ -300,17 +302,20 @@ footer {
     color: rgb(94, 174, 199);
     font-size: 1.2em;
     margin-bottom: 10px;
+    text-shadow: 1px 1px black;
 }
 
 .footer-left p {
     font-size: 0.9em;
     color: #ccc;
+    text-shadow: 1px 1px black;
 }
 
 .footer-right address {
     font-style: normal;
     font-size: 0.9em;
     color: #ccc;
+    text-shadow: 1px 1px black;
 }
 
 .footer-right .social-icons {
@@ -322,111 +327,36 @@ footer {
     color: rgb(94, 174, 199);
     font-size: 1.5em;
     text-decoration: none;
+    text-shadow: 1px 1px black;
 }
 
 .social-icons .social-link:hover {
     color: rgb(94, 174, 199);
 }
 
-.quest, .mission {
-    color: #ffec96;
+.quest {
+    color: #fbe784;
     background-color: rgb(94, 174, 199);
-    font-size: 1.8em;
+    border-radius: 10px;
+    border-color: #ffec96;
+    font-size: 2em;
+    font-family: 'Permanent Marker', cursive; 
+    padding: 5px;
+    border-style: solid;
+    text-shadow: 1px 1px black;
+}
+
+.mission {
+    color: #fbe784;
+    background-color: rgb(94, 174, 199);
+    border-radius: 10px;
+    border-color: #ffec96;
+    font-size: 2em;
     font-family: 'Permanent Marker', cursive;
-    padding: 15px 25px;
-    border-radius: 20px;
-    border: 5px solid #fbe784;
-    box-shadow: 0px 10px 0px #fbe784;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 0 #333;
-    margin: 30px 20px;
+    padding: 5px;
+    border-style: solid;
+    text-shadow: 1px 1px black;
 }
-
-.quest:hover, .mission:hover {
-    background-color: rgb(101, 173, 195);
-    box-shadow: 0px 15px 0px #fbe784;
-    transform: translateY(-5px);
-}
-
-.quest:active, .mission:active {
-    transform: translateY(5px);
-    box-shadow: 0px 5px 0px #fbe784;
-}
-
-@keyframes buttonPop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
-}
-
-.quest, .mission {
-    animation: buttonPop 2s ease-in-out infinite;
-    animation-delay: 2s;
-}
-
-.quest:hover, .mission:hover {
-    animation: none;
-}
-
-.quest:focus, .mission:focus {
-    outline: none;
-    box-shadow: 0px 0px 10px #fbe784;
-}
-
-.quest::before, .mission::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 5px dashed #fbe784;
-    border-radius: 30px;
-    z-index: -1;
-    transform: rotate(5deg);
-}
-
-.quest:hover::before, .mission:hover::before {
-    transform: rotate(-5deg);
-}
-
-.quest:active::before, .mission:active::before {
-    transform: rotate(0deg);
-}
-
-@keyframes pageTransition {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-}
-
-.quest:focus, .mission:focus {
-    animation: pageTransition 0.5s ease forwards;
-}
-
-@media (max-width: 800px) {
-    .quest, .mission {
-        font-size: 1.5em;
-        padding: 10px 20px;
-        margin: 20px 15px;
-        animation: buttonPop 3s ease-in-out infinite;
-    }
-}
-
-
 
 .hat-image {
     margin-right: 300px;
@@ -449,6 +379,7 @@ footer {
     color: rgb(94, 174, 199);
     margin-bottom: 40px;
     font-family: 'Permanent Marker', cursive;
+    text-shadow: 1px 1px black;
 }
 
 .image-grid {
@@ -533,6 +464,7 @@ footer {
     -webkit-background-clip: text;
     color: transparent;
     position: relative;
+    text-shadow: 1px 1px black;
 }
 
 .letter {
@@ -592,6 +524,7 @@ footer {
     padding: 5px 0;
     border-radius: 10px;
     transition: transform 0.3s ease, background-color 0.3s ease;
+    text-shadow: 1px 1px black;
 }
 
 .image-item:hover .image-title {
@@ -604,89 +537,8 @@ footer {
         margin-left: -100px; 
     }
 }
+
 .about p {
     color: rgb(94, 174, 199);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px black;
 }
-body, h1, h2, h3, h4, h5, h6, p, a, li, span {
-    text-shadow: 1px 1px 1px rgb(159, 213, 230);
-}
-.small-link-container {
-    text-align: center;
-    margin-top: 1px;
-}
-
-.small-link {
-    font-size: 0.7em;
-    color: rgb(48, 123, 147);
-    
-}
-
-.small-link:hover {
-    color: rgb(255, 251, 132);
-}
-.opcat-link-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.learn-more {
-    font-size: 1.5em;
-    font-family: 'Permanent Marker', cursive;
-    color: rgb(255, 94, 94);
-    margin-bottom: 10px;
-}
-
-.arrow-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.animated-arrow {
-    font-size: 2em;
-    font-family: 'Permanent Marker', cursive;
-    color: rgb(94, 174, 199);
-    margin-right: 10px;
-    animation: arrow-bounce 1s infinite;
-}
-
-@keyframes arrow-bounce {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(10px);
-    }
-}
-
-.opcat-button {
-    font-size: 1.2em;
-    font-family: 'Permanent Marker', cursive;
-    color: #ffec96;
-    background-color: rgb(94, 174, 199);
-    padding: 5px 30px;
-    border-radius: 10px;
-    border: 3px solid #ffec96;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0px 0px 20px rgba(94, 174, 199, 0.6);
-    z-index: 1;
-    
-}
-
-.opcat-button:hover {
-    color: rgb(255, 94, 94);
-    box-shadow: 0px 0px 40px rgba(255, 94, 94, 0.8);
-    border-color: rgb(255, 94, 94);
-    transform: scale(1.05);
-}
-
-.opcat-button:active {
-    transform: scale(0.95);
-    box-shadow: 0px 0px 30px rgba(255, 94, 94, 0.6);
-}
-
