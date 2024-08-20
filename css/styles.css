@@ -17,7 +17,7 @@ header {
     top: 0;
     z-index: 1000;
     height: auto;
-    box-shadow: rgb(57, 125, 145);
+    box-shadow: rgb(31, 82, 97);
 }
 
 .logo-title {
@@ -609,6 +609,21 @@ footer {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 body, h1, h2, h3, h4, h5, h6, p, a, li, span {
-    text-shadow: 1px 1px 1px rgb(57, 125, 145);
+    text-shadow: 1px 1px 1px rgb(159, 213, 230);
 }
+.small-link-container {
+    text-align: center;
+    margin-top: 1px;
+}
+
+.small-link {
+    font-size: 0.7em;
+    color: rgb(48, 123, 147);
+    
+}
+
+.small-link:hover {
+    color: rgb(255, 251, 132);
+}
+
 
