@@ -690,3 +690,15 @@ nav ul li:hover > .dropdown {
         transform: scale(1);
     }
 }
+#search-input::placeholder {
+    color: rgb(94, 174, 199); 
+    opacity: 1; 
+}
+
+#search-input:-ms-input-placeholder { 
+    color: rgb(94, 174, 199); 
+}
+
+#search-input::-ms-input-placeholder { 
+    color: rgb(94, 174, 199); 
+}

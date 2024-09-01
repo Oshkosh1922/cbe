@@ -88,21 +88,38 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 document.addEventListener("DOMContentLoaded", function() {
     const audioControl = document.getElementById('audio-control');
+    const audioIcon = document.getElementById('audio-icon');
+    const volumeControl = document.getElementById('volume-control');
+    const backgroundAudio = document.getElementById('background-audio');
     let scrollTimeout;
+
+    audioIcon.addEventListener('click', () => {
+        if (backgroundAudio.paused) {
+            backgroundAudio.play();
+            audioIcon.classList.remove('fa-volume-mute');
+            audioIcon.classList.add('fa-volume-up');
+        } else {
+            backgroundAudio.pause();
+            audioIcon.classList.remove('fa-volume-up');
+            audioIcon.classList.add('fa-volume-mute');
+        }
+    });
+
+    volumeControl.addEventListener('input', (e) => {
+        backgroundAudio.volume = e.target.value;
+    });
 
     window.addEventListener('scroll', function() {
         audioControl.style.opacity = '1';
-
         clearTimeout(scrollTimeout);
-
         scrollTimeout = setTimeout(() => {
             audioControl.style.opacity = '0';
         }, 2000); 
     });
 
-    
     scrollTimeout = setTimeout(() => {
         audioControl.style.opacity = '0';
     }, 2000); 
 });
+
 
