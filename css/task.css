@@ -723,4 +723,30 @@ nav ul li:hover > .dropdown {
         margin-top: 15px;
     }
 }
+.hero-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+}
+
+.hero-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(255, 249, 78, 0.2), rgba(101, 173, 195, 0.2));
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 249, 78, 0.2);
+}
 
