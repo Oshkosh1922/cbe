@@ -542,3 +542,50 @@ footer {
     color: rgb(94, 174, 199);
     text-shadow: 1px 1px black;
 }
+.small-link-container .small-link {
+    color: #ffec968b; 
+    text-decoration: none; 
+    font-size: 1.2em; 
+    background-color: rgba(94, 174, 199, 0.379); 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.small-link-container .small-link:hover {
+    background-color: #ffec9680;
+    color: rgb(94, 174, 199); 
+}
+.opcat-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    font-family: 'Permanent Marker', cursive;
+    color: #ffec96;
+    background-color: rgb(94, 174, 199);
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.opcat-button:hover {
+    background-color: #ffec96;
+    color: rgb(94, 174, 199);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 800px) {
+    .hero section {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; 
+    }
+
+    .hero section a {
+        margin-bottom: 15px;
+    }
+}
+
+
+
