@@ -235,4 +235,25 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.removeItem('scrollPosition');
     }
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const videoLinks = document.querySelectorAll('.video-submission-link');
+
+    videoLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            const popup = document.createElement('div');
+            popup.className = 'video-popup';
+            popup.textContent = 'Video Submission';
+            document.body.appendChild(popup);
+
+            const rect = link.getBoundingClientRect();
+            popup.style.left = `${rect.left + window.scrollX}px`;
+            popup.style.top = `${rect.top + window.scrollY - popup.offsetHeight - 5}px`;
+
+            link.addEventListener('mouseleave', function() {
+                document.body.removeChild(popup);
+            });
+        });
+    });
+});
+
 
