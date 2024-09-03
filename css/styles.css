@@ -215,7 +215,9 @@ nav ul li:hover > .dropdown {
         order: -1;
     }
 
-    .audio-control {
+       .audio-control {
+        bottom: 10px;
+        left: 10px;
         padding: 5px 10px;
         border-radius: 20px;
     }
@@ -275,6 +277,7 @@ nav ul li:hover > .dropdown {
     z-index: 1000;
     transition: opacity 0.5s ease-out, transform 0.3s ease;
     transform: scale(0.95);
+    opacity: 1;
 }
 
 #audio-icon {

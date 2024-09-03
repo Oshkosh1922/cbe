@@ -3,22 +3,30 @@ document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.getElementById('nav-links');
     const audioControl = document.getElementById('audio-control');
     const audioIcon = document.getElementById('audio-icon');
-    const volumeControl = document.getElementById('volume-control');
     const backgroundAudio = document.getElementById('background-audio');
     const sections = document.querySelectorAll('.section');
     const letters = document.querySelectorAll('.celebration-title .letter');
+    let scrollTimeout;
 
     hamburgerMenu.addEventListener('click', () => {
         navLinks.classList.toggle('show');
     });
-    document.addEventListener("click", function(event) {
-        const navLinks = document.getElementById("nav-links");
-        const hamburgerMenu = document.getElementById("hamburger-menu");
 
+    document.addEventListener("click", function(event) {
         if (navLinks.classList.contains("show") && !hamburgerMenu.contains(event.target) && !navLinks.contains(event.target)) {
             navLinks.classList.remove("show");
         }
     });
+
+    function tryPlayAudio() {
+        backgroundAudio.play().catch(() => {
+            document.body.addEventListener('touchstart', () => {
+                backgroundAudio.play();
+            }, { once: true });
+        });
+    }
+
+    tryPlayAudio();
 
     audioIcon.addEventListener('click', () => {
         if (backgroundAudio.paused) {
@@ -30,10 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
             audioIcon.classList.remove('fa-volume-up');
             audioIcon.classList.add('fa-volume-mute');
         }
-    });
-
-    volumeControl.addEventListener('input', (e) => {
-        backgroundAudio.volume = e.target.value;
     });
 
     const handleScroll = () => {
@@ -68,64 +72,30 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     window.addEventListener('scroll', throttle(handleScroll, 200));
-
     handleScroll();
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const heroVideo = document.getElementById('hero-video');
-
-    function playVideo() {
-        heroVideo.setAttribute('playsinline', 'true');
-        heroVideo.play().catch(() => {
-            document.body.addEventListener('touchstart', () => {
-                heroVideo.play();
-            }, { once: true });
-        });
-    }
-
-    playVideo();
-});
-document.addEventListener("DOMContentLoaded", function() {
-    const audioControl = document.getElementById('audio-control');
-    const audioIcon = document.getElementById('audio-icon');
-    const volumeControl = document.getElementById('volume-control');
-    const backgroundAudio = document.getElementById('background-audio');
-    let scrollTimeout;
-
-    audioIcon.addEventListener('click', () => {
-        if (backgroundAudio.paused) {
-            backgroundAudio.play();
-            audioIcon.classList.remove('fa-volume-mute');
-            audioIcon.classList.add('fa-volume-up');
-        } else {
-            backgroundAudio.pause();
-            audioIcon.classList.remove('fa-volume-up');
-            audioIcon.classList.add('fa-volume-mute');
-        }
-    });
-
-    volumeControl.addEventListener('input', (e) => {
-        backgroundAudio.volume = e.target.value;
-    });
 
     window.addEventListener('scroll', function() {
         audioControl.style.opacity = '1';
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
             audioControl.style.opacity = '0';
-        }, 2000); 
+        }, 2000);
     });
 
     scrollTimeout = setTimeout(() => {
         audioControl.style.opacity = '0';
-    }, 2000); 
+    }, 2000);
+
+    const heroVideo = document.getElementById('hero-video');
+    if (heroVideo) {
+        function playVideo() {
+            heroVideo.setAttribute('playsinline', 'true');
+            heroVideo.play().catch(() => {
+                document.body.addEventListener('touchstart', () => {
+                    heroVideo.play();
+                }, { once: true });
+            });
+        }
+        playVideo();
+    }
 });
-
-
-
-
-
-
-
-
