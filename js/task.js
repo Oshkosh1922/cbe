@@ -216,21 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
    
 });
-document.addEventListener("DOMContentLoaded", function() {
-    const submissionLinks = document.querySelectorAll('.submission-link');
 
-    submissionLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            localStorage.setItem('scrollPosition', window.scrollY);
-        });
-    });
-
-    const savedPosition = localStorage.getItem('scrollPosition');
-    if (savedPosition) {
-        window.scrollTo(0, parseInt(savedPosition));
-        localStorage.removeItem('scrollPosition');
-    }
-});
 document.addEventListener("DOMContentLoaded", function() {
     const submissionLinks = document.querySelectorAll('.submission-link');
 
