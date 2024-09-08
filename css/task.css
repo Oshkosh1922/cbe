@@ -886,3 +886,17 @@ nav ul li:hover > .dropdown {
 
 
 
+
+
+.winner-card .card-front .winner-image {
+    box-shadow: 0 0 20px rgba(255, 223, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.winner-card:hover .card-front .winner-image {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 223, 0, 1);
+}
+
+
+
